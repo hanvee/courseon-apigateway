@@ -1,9 +1,10 @@
-const axios = require('axios'); 
+const axios = require('axios');
+
 const { TIMEOUT } = process.env;
 
 module.exports = (baseUrl) => {
-    return axios.create({
-        baseUrl: baseUrl, 
-        timeout: TIMEOUT
-    });
+  return axios.create({
+    baseURL: baseUrl,
+    timeout: parseInt(TIMEOUT)
+  });
 }
