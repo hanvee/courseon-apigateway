@@ -9,5 +9,5 @@ module.exports = {
     login, 
     update, 
     getUser,
-    
+    logout
 };
