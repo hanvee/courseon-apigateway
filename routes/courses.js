@@ -1,10 +1,11 @@
-var express = require('express');
-var router = express.Router();
-const { APP_NAME } = process.env;
+const express = require('express');
+const router = express.Router();
+const coursesHandler = require('./handler/courses');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('courses');
-});
+router.get('/', coursesHandler.getAll);
+router.get('/:id', coursesHandler.getById);
+router.post('/create', coursesHandler.create);
+router.put('/update/:id', coursesHandler.update);
+router.delete('/destroy/:id', coursesHandler.destroy);
 
 module.exports = router;
