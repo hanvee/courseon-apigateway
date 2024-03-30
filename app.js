@@ -31,16 +31,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/media', mediaRouter);
+app.use('/media', verifyToken, mediaRouter);
 app.use('/orders', ordersRouter);
 app.use('/payments', paymentsRouter);
 app.use('/courses', coursesRouter);
-app.use('/image-courses', imageCoursesRouter);
+app.use('/image-courses', verifyToken, imageCoursesRouter);
 app.use('/my-courses', verifyToken, myCoursesRouter);
 app.use('/refresh-tokens', refreshTokensRouter);
-app.use('/mentors', mentorsRouter);
-app.use('/chapters', chaptersRouter);
-app.use('/lessons', lessonsRouter);
+app.use('/mentors', verifyToken, mentorsRouter);
+app.use('/chapters', verifyToken, chaptersRouter);
+app.use('/lessons', verifyToken, lessonsRouter);
 app.use('/reviews', verifyToken, reviewsHandler);
 
 module.exports = app;
